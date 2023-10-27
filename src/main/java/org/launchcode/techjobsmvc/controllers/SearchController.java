@@ -31,8 +31,8 @@ public class SearchController {
     // Preparing all of the data that will be submitted by user and create the correct data to send back to search
     // page after submission.
 //    Pass ListController.columnChoices into the view, as the existing search handler does.
-    @PostMapping("/results")
-    public String displaySearchResults(Model model, @RequestParam String searchTerm, @RequestParam String searchType) {
+    @PostMapping("results")
+    public String displaySearchResults(Model model,@RequestParam String searchType ,@RequestParam String searchTerm) {
         ArrayList<Job> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         model.addAttribute("columns", columnChoices);
         model.addAttribute("jobs", jobs);
